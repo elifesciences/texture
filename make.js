@@ -69,6 +69,9 @@ b.task('test-nodejs', ['clean', 'build:schema', 'build:test-assets'])
 b.task('test-browser', ['clean', 'build:schema', 'build:browser', 'build:test-assets', 'build:test-browser'])
   .describe('builds the test-suite for the browser.')
 
+b.task('test-assets', ['build:vfs'])
+  .describe('prepares assests only for running Persistence test.')
+
 // an alias because in all our other projects it is named this way
 b.task('test:browser', ['test-browser'])
 
