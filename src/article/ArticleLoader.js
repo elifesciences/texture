@@ -14,9 +14,10 @@ export default {
     }
     let result = jatsImporter.import(xml, importOptions)
     if (result.hasErrored) {
-      let err = new Error('JATS import failed')
+      let resultErrors = new ImporterErrorReport(result.errors)
+      let err = new Error('JATS import failed' + resultErrors)
       err.type = 'jats-import-error'
-      err.detail = new ImporterErrorReport(result.errors)
+      err.detail = resultErrors
       throw err
     }
     let doc = result.doc
