@@ -38,6 +38,7 @@ function InvariantLoadSaveTest (archiveId, memory) {
     let testVfs = setupTestVfs(vfs, archiveId)
     let { app, archive, manuscriptSession } = setupTestApp(t, {
       vfs: testVfs,
+      writable: true,
       archiveId
     })
 
@@ -113,6 +114,7 @@ function LoadSaveShouldNotThrow (archiveId, title, change) {
     let testVfs = setupTestVfs(vfs, archiveId)
     let { app, archive, manuscriptSession } = setupTestApp(t, {
       vfs: testVfs,
+      writeable: true,
       archiveId
     })
     // change the content
